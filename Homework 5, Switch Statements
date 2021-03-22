@@ -1,0 +1,617 @@
+// HomeWork 5: Switch Statements
+
+var constants = {
+  week: [7, 168, 10080, 604800],  //days, hours, minutes, seconds
+  day: [24, 1440, 86400],        //hours, minutes, seconds
+  hour: [60, 3600],             //minutes, seconds
+  min: [60]                    //seconds
+};
+
+function timeAdder() {
+  var l1 = window.prompt("Please enter your first time lable or 'exit'.");
+  firstLable(l1);
+  function firstLable(l1) {
+    if (isNaN(l1)) {
+      var _l1;
+      switch (l1) {  
+        case 'week': case 'Week': case 'weeks': case 'Weeks':
+          _l1 = 'ws';
+          askForFirstValue(_l1);
+          break;
+        case 'day': case 'Day': case 'days': case 'Days':
+          _l1 = 'ds';
+          askForFirstValue(_l1);
+          break;
+        case 'hour': case 'Hour': case 'hours': case 'Hours':
+          _l1 = 'hs';
+          askForFirstValue(_l1);
+          break;
+        case 'minute': case 'Minute': case 'minutes': case 'Minutes':
+          _l1 = 'ms';
+          askForFirstValue(_l1);
+          break;
+        case 'second': case 'Second': case 'seconds': case 'Seconds':
+          _l1 = 'ss';
+          askForFirstValue(_l1);
+          break;
+        case 'exit': case 'Exit':
+          return;
+        default:
+          l1 = window.prompt("Not a valid input, Enter a first time lable.");
+          firstLable(l1);
+          break;
+      }
+    } else {
+      l1 = window.prompt("Not a valid input, Enter a first time lable.");
+      firstLable(l1);
+    }
+  }
+} 
+
+function askForFirstValue(_l1){
+  var v1 = window.prompt("Enter the corresponding time value" +
+                         "\nYou can also navigate 'back'.");
+  firstValue(_l1, v1);
+  function firstValue(_l1, v1) {
+    if (isNaN(v1)) {
+      if((v1 === 'exit') || (v1 === 'Exit')){
+        return;
+      } else if((v1 === 'back') || (v1 === 'Back')){
+        timeAdder();
+      }else{  
+        v1 = window.prompt("Not a valid input, Please enter a number");
+        firstValue(_l1, v1);
+      }  
+    } else {
+      var _v1 = parseFloat(v1);
+      askForSecondLable(_l1, _v1);
+    }
+  }
+}
+
+function askForSecondLable(_l1, _v1) {
+  var l2 = window.prompt("Enter your second time lable");
+  secondLable(_l1, _v1, l2);
+  function secondLable(_l1, _v1, l2) {
+    if (isNaN(l2)) {
+      var _l2;
+      switch (l2) {
+        case 'back': case 'Back':
+          timeAdder();
+        case 'exit': case 'Exit':
+          return;
+        case 'week': case 'Week': case 'weeks': case 'Weeks':
+        case 'day': case 'Day': case 'days': case 'Days':
+        case 'hour': case 'Hour': case 'hours': case 'Hours':
+        case 'minute': case 'Minute': case 'minutes': case 'Minutes':
+        case 'second': case 'Second': case 'seconds': case 'Seconds':
+          if (_l1 === 'ws') {
+            switch (l2) {
+              case 'week': case 'weeks': case 'Week': case 'Weeks':
+                _l2 = 'ws';
+                askForSecondValue(_l1, _v1, _l2);
+                return true;
+              case 'day': case 'days': case 'Day': case 'Days':
+                _l2 = 'ds';
+                askForSecondValue(_l1, _v1, _l2);
+                return true;
+              case 'hour': case 'hours': case 'Hour': case 'Hours':
+                _l2 = 'hs';
+                askForSecondValue(_l1, _v1, _l2);
+                return true;
+              case 'minute': case 'minutes': case 'Minute': case 'Minutes':
+                _l2 = 'ms';
+                askForSecondValue(_l1, _v1, _l2);
+                return true;
+              case 'second': case 'seconds': case 'Second': case 'Seconds':
+                _l2 = 'ss';
+                askForSecondValue(_l1, _v1, _l2);
+                return true;
+              default:
+                l2 = window.prompt("Enter your second time lable");
+                secondLable(_l1, _v1, l2);
+                return true;
+            }
+          } else if (_l1 === 'ds') {
+            switch (l2) {
+              case 'week': case 'weeks': case 'Week': case 'Weeks':
+                _l2 = 'ws';
+                askForSecondValue(_l1, _v1, _l2);
+                return true;
+              case 'day': case 'days': case 'Day': case 'Days':
+                _l2 = 'ds';
+                askForSecondValue(_l1, _v1, _l2);
+                return true;
+              case 'hour': case 'hours': case 'Hour': case 'Hours':
+                _l2 = 'hs';
+                askForSecondValue(_l1, _v1, _l2);
+                return true;
+              case 'minute': case 'minutes': case 'Minute': case 'Minutes':
+                _l2 = 'ms';
+                askForSecondValue(_l1, _v1, _l2);
+                return true;
+              case 'second': case 'seconds': case 'Second': case 'Seconds':
+                _l2 = 'ss';
+                askForSecondValue(_l1, _v1, _l2);
+                return true;
+              default:
+                l2 = window.prompt("Not a valid input, Enter a second time lable");
+                secondLable(_l1, _v1, l2);
+                return true;
+            }
+          } else if (_l1 === 'hs') {
+            switch (l2) {
+              case 'week': case 'weeks': case 'Week': case 'Weeks':
+                _l2 = 'ws';
+                askForSecondValue(_l1, _v1, _l2);
+                return true;
+              case 'day': case 'days': case 'Day': case 'Days':
+                _l2 = 'ds';
+                askForSecondValue(_l1, _v1, _l2);
+                return true;
+              case 'hour': case 'hours': case 'Hour': case 'Hours':
+                _l2 = 'hs';
+                askForSecondValue(_l1, _v1, _l2);
+                return true;
+              case 'minute': case 'minutes': case 'Minute': case 'Minutes':
+                _l2 = 'ms';
+                askForSecondValue(_l1, _v1, _l2);
+                return true;
+              case 'second': case 'seconds': case 'Second': case 'Seconds':
+                _l2 = 'ss';
+                askForSecondValue(_l1, _v1, _l2);
+                return true;
+              default:
+                l2 = window.prompt("Not a valid input, Enter a second time lable");
+                secondLable(_l1, _v1, l2);
+                return true;
+            }
+          } else if (_l1 === 'ms') {
+            switch (l2) {
+              case 'week': case 'weeks': case 'Week': case 'Weeks':
+                _l2 = 'ws';
+                askForSecondValue(_l1, _v1, _l2);
+                return true;
+              case 'day': case 'days': case 'Day': case 'Days':
+                _l2 = 'ds';
+                askForSecondValue(_l1, _v1, _l2);
+                return true;
+              case 'hour': case 'hours': case 'Hour': case 'Hours':
+                _l2 = 'hs';
+                askForSecondValue(_l1, _v1, _l2);
+                return true;
+              case 'minute': case 'minutes': case 'Minute': case 'Minutes':
+                _l2 = 'ms';
+                askForSecondValue(_l1, _v1, _l2);
+                return true;
+              case 'second': case 'seconds': case 'Second': case 'Seconds':
+                _l2 = 'ss';
+                askForSecondValue(_l1, _v1, _l2);
+                return true;
+              default:
+                l2 = window.prompt("Not a valid input, Enter a second time lable");
+                secondLable(_l1, _v1, l2);
+                return true;
+            }
+          } else if (_l1 === 'ss') {
+            switch (l2) {
+              case 'week': case 'weeks': case 'Week': case 'Weeks':
+                _l2 = 'ws';
+                askForSecondValue(_l1, _v1, _l2);
+                return true;
+              case 'day': case 'days': case 'Day': case 'Days':
+                _l2 = 'ds';
+                askForSecondValue(_l1, _v1, _l2);
+                return true;
+              case 'hour': case 'hours': case 'Hour': case 'Hours':
+                _l2 = 'hs';
+                askForSecondValue(_l1, _v1, _l2);
+                return true;
+              case 'minute': case 'minutes': case 'Minute': case 'Minutes':
+                _l2 = 'ms';
+                askForSecondValue(_l1, _v1, _l2);
+                return true;
+              case 'second': case 'seconds': case 'Second': case 'Seconds':
+                _l2 = 'ss';
+                askForSecondValue(_l1, _v1, _l2);
+                return true;
+            }    
+          }     
+        default:
+          l2 = window.prompt("Not a valid input, Enter a second time lable");
+          secondLable(_l1, _v1, l2);
+          return true;
+      }
+    } else {
+      l2 = window.prompt("Not a valid input, Enter a second time lable");
+      secondLable(_l1, _v1, l2);
+    }
+  }
+}
+
+function askForSecondValue(_l1, _v1, _l2) {
+  var v2 = window.prompt("Enter the corresponding time value");
+  secondValue(_l1, _v1, _l2, v2);
+  function secondValue(_l1, _v1, _l2, v2) {    
+    if (isNaN(v2)) {
+      if((v2 === 'exit') || (v2 === 'Exit')){
+        return;
+      } else if ((v2 === 'back') || (v2 === 'Back')){
+        askForSecondLable(_l1, _v1);  
+      } else {  
+        v2 = window.prompt("Not a valid input, Please enter a number");
+        secondValue(_l1, _v1, _l2, v2);
+      }  
+    } else {
+      var _v2 = parseFloat(v2);
+      finalTime(_l1, _v1, _l2, _v2);
+    }
+  }
+}
+
+function finalTime(_l1, _v1, _l2, _v2) {
+  var vf;
+  var _vf;
+  if (_l1 === 'ws' && _l2 === 'ws') {    
+    vf = (_v1 + _v2);                                          // all value in weeks
+    _vf = vf
+    alert("Weeks: " + _vf);      
+  }else if (_l1 === 'ws' && _l2 === 'ds') {
+    vf = (_v1 * 7) + _v2;                                      // converting all values to days
+    if (vf < 7) {
+      _vf = vf;
+      alert("Days: " + _vf);
+    }else if(vf >= 7){
+      _vf = vf / 7;
+      alert("Weeks: " + _vf);
+    }
+  }else if (_l1 === 'ws' && _l2 === 'hs') {
+    vf = (_v1 * 168) + _v2;                                    // converting all values to hours
+    if (vf < 24) {
+      _vf = vf;
+      alert("Hours: " + _vf);
+    }else if((vf < 168) && (vf >=24)){
+      _vf = vf / 24;
+      alert("Days: " + _vf);
+    }else if(vf >= 168){
+      _vf = vf / 168;       
+      alert("Weeks: " + _vf);
+    }   
+  }else if (_l1 === 'ws' && _l2 === 'ms') {
+    vf = (_v1 * 10080) + _v2;                                  // converting all values to minutes
+    if (vf < 60){
+      _vf = vf;
+      alert("Minutes: " + _vf);                                        
+    }else if ((vf < 1440) && (vf  >= 60)){
+      _vf = vf / 60;                                                   
+      alert("Hours: " + _vf);
+    }else if((vf < 10080) && (vf >= 1440)){
+      _vf = vf / 1440;
+      alert("Days: " + _vf);
+    }else if(vf >= 10080){
+      _vf = vf / 10080;
+      alert("Week: " + _vf);
+    }  
+  }else if (_l1 === 'ws' && _l2 === 'ss') {
+    vf = (_v1 * 604800) + _v2;                                 // converting all values to seconds
+    if(vf < 60){
+      _vf = vf;
+      alert("Seconds: " + _vf);
+    }else if((vf < 3600) && (vf >= 60)){
+      _vf = vf / 60;
+      alert("Minutes: " + _vf);
+    }else if ((vf < 86400) && (vf >= 3600)){
+      _vf = vf / 3600;
+      alert("Hours: " + _vf);
+    }else if ((vf < 604800) && (vf >= 86400)){
+      _vf = vf / 86400;
+      alert("Days: " + _vf);      
+    }else if(vf >= 604800){
+      _vf = vf / 604800;
+      alert("Weeks: " + _vf);
+    }
+  }else if (_l1 === 'ds' && _l2 === 'ws') {
+    vf = _v1 + (_v2 * 7);                                      // converting all values to days
+    if (vf < 7) {
+      _vf = vf;
+      alert("Days: " + _vf);
+    }else if(vf >= 7){
+      _vf = vf / 7;
+      alert("Weeks: " + _vf);
+    }    
+  }else if (_l1 === 'ds' && _l2 === 'ds') {
+    vf = _v1 + _v2;                                            // all values in days
+    if (vf < 7) {
+      _vf = vf;
+      alert("Days: " + _vf);
+    }else if(vf >= 7){
+      _vf = vf / 7;
+      alert("Weeks: " + _vf);
+    }       
+  }else if (_l1 === 'ds' && _l2 === 'hs') {
+    vf = (_v1 * 24) + _v2;                                       // converting all values to hours
+    if (vf < 24) {
+      _vf = vf;
+      alert("Hours: " + _vf);
+    }else if((vf < 168) && (vf >=24)){
+      _vf = vf / 24;
+      alert("Days: " + _vf);
+    }else if(vf >= 168){
+      _vf = vf / 168;       
+      alert("Weeks: " + _vf);
+    }    
+  }else if (_l1 === 'ds' && _l2 === 'ms') {
+    vf = (_v1 * 1440) + _v2;                                     // converting all values to minutes
+    if (vf < 60){
+      _vf = vf;
+      alert("Minutes: " + _vf);                                        
+    }else if ((vf < 1440) && (vf  >= 60)){
+      _vf = vf / 60;                                                   
+      alert("Hours: " + _vf);
+    }else if((vf < 10080) && (vf >= 1440)){
+      _vf = vf / 1440;
+      alert("Days: " + _vf);
+    }else if(vf >= 10080){
+      _vf = vf / 10080;
+      alert("Week: " + _vf);
+    }      
+  }else if (_l1 === 'ds' && _l2 === 'ss') {
+    vf = (_v1 * 86400) + _v2;                                    // converting all values to seconds
+    if(vf < 60){
+      _vf = vf;
+      alert("Seconds: " + _vf);
+    }else if((vf < 3600) && (vf >= 60)){
+      _vf = vf / 60;
+      alert("Minutes: " + _vf);
+    }else if ((vf < 86400) && (vf >= 3600)){
+      _vf = vf / 3600;
+      alert("Hours: " + _vf);
+    }else if ((vf < 604800) && (vf >= 86400)){
+      _vf = vf / 86400;
+      alert("Days: " + _vf);      
+    }else if(vf >= 604800){
+      _vf = vf / 604800;
+      alert("Weeks: " + _vf);
+    }    
+  }else if (_l1 === 'hs' && _l2 === 'ws') {
+    vf = _v1 + (_v2 * 168);                                      // converting all values to hours
+    if (vf < 24) {
+      _vf = vf;
+      alert("Hours: " + _vf);
+    }else if((vf < 168) && (vf >=24)){
+      _vf = vf / 24;
+      alert("Days: " + _vf);
+    }else if(vf >= 168){
+      _vf = vf / 168;       
+      alert("Weeks: " + _vf);
+    }        
+  }else if (_l1 === 'hs' && _l2 === 'ds') {
+    vf = _v1 + (_v2 * 24);                                       // converting all values to hours
+    if (vf < 24) {
+      _vf = vf;
+      alert("Hours: " + _vf);
+    }else if((vf < 168) && (vf >=24)){
+      _vf = vf / 24;
+      alert("Days: " + _vf);
+    }else if(vf >= 168){
+      _vf = vf / 168;       
+      alert("Weeks: " + _vf);
+    }    
+  }else if (_l1 === 'hs' && _l2 === 'hs') {
+    vf = _v1 + _v2;                                              // all values in hours
+    if (vf < 24) {
+      _vf = vf;
+      alert("Hours: " + _vf);
+    }else if((vf < 168) && (vf >=24)){
+      _vf = vf / 24;
+      alert("Days: " + _vf);
+    }else if(vf >= 168){
+      _vf = vf / 168;       
+      alert("Weeks: " + _vf);
+    }     
+  }else if (_l1 === 'hs' && _l2 === 'ms') {
+    vf = (_v1 * 60) + _v2;                                       // converting all values to minutes
+    if (vf < 60){
+      _vf = vf;
+      alert("Minutes: " + _vf);                                        
+    }else if ((vf < 1440) && (vf  >= 60)){
+      _vf = vf / 60;                                                   
+      alert("Hours: " + _vf);
+    }else if((vf < 10080) && (vf >= 1440)){
+      _vf = vf / 1440;
+      alert("Days: " + _vf);
+    }else if(vf >= 10080){
+      _vf = vf / 10080;
+      alert("Week: " + _vf);
+    }     
+  }else if (_l1 === 'hs' && _l2 === 'ss') {
+    vf = (_v1 * 3600) + _v2;                                     // converting all values to seconds
+    if(vf < 60){
+      _vf = vf;
+      alert("Seconds: " + _vf);
+    }else if((vf < 3600) && (vf >= 60)){
+      _vf = vf / 60;
+      alert("Minutes: " + _vf);
+    }else if ((vf < 86400) && (vf >= 3600)){
+      _vf = vf / 3600;
+      alert("Hours: " + _vf);
+    }else if ((vf < 604800) && (vf >= 86400)){
+      _vf = vf / 86400;
+      alert("Days: " + _vf);      
+    }else if(vf >= 604800){
+      _vf = vf / 604800;
+      alert("Weeks: " + _vf);
+    }     
+  }else if (_l1 === 'ms' && _l2 === 'ws') {
+    vf = _v1 + (_v2 * 10080);                                    // converting all values to minutes
+    if (vf < 60){
+      _vf = vf;
+      alert("Minutes: " + _vf);                                        
+    }else if ((vf < 1440) && (vf  >= 60)){
+      _vf = vf / 60;                                                   
+      alert("Hours: " + _vf);
+    }else if((vf < 10080) && (vf >= 1440)){
+      _vf = vf / 1440;
+      alert("Days: " + _vf);
+    }else if(vf >= 10080){
+      _vf = vf / 10080;
+      alert("Week: " + _vf);
+    }     
+  }else if (_l1 === 'ms' && _l2 === 'ds') {
+    vf = _v1 + (_v2 * 1440);                                     // converting all values to minutes
+    if (vf < 60){
+      _vf = vf;
+      alert("Minutes: " + _vf);                                        
+    }else if ((vf < 1440) && (vf  >= 60)){
+      _vf = vf / 60;                                                   
+      alert("Hours: " + _vf);
+    }else if((vf < 10080) && (vf >= 1440)){
+      _vf = vf / 1440;
+      alert("Days: " + _vf);
+    }else if(vf >= 10080){
+      _vf = vf / 10080;
+      alert("Week: " + _vf);
+    }     
+  }else if (_l1 === 'ms' && _l2 === 'hs') {
+    vf = _v1 + (_v2 * 60);                                       // converting all values to minutes
+    if (vf < 60){
+      _vf = vf;
+      alert("Minutes: " + _vf);                                        
+    }else if ((vf < 1440) && (vf  >= 60)){
+      _vf = vf / 60;                                                   
+      alert("Hours: " + _vf);
+    }else if((vf < 10080) && (vf >= 1440)){
+      _vf = vf / 1440;
+      alert("Days: " + _vf);
+    }else if(vf >= 10080){
+      _vf = vf / 10080;
+      alert("Week: " + _vf);
+    }     
+  }else if (_l1 === 'ms' && _l2 === 'ms') {
+    vf = _v1 + _v2;                                              // all values in minutes
+    if (vf < 60){
+      _vf = vf;
+      alert("Minutes: " + _vf);                                        
+    }else if ((vf < 1440) && (vf  >= 60)){
+      _vf = vf / 60;                                                   
+      alert("Hours: " + _vf);
+    }else if((vf < 10080) && (vf >= 1440)){
+      _vf = vf / 1440;
+      alert("Days: " + _vf);
+    }else if(vf >= 10080){
+      _vf = vf / 10080;
+      alert("Week: " + _vf);
+    }     
+  }else if (_l1 === 'ms' && _l2 === 'ss') {
+    vf = (_v1 * 60) + _v2;                                       // converting all values to seconds
+    if(vf < 60){
+      _vf = vf;
+      alert("Seconds: " + _vf);
+    }else if((vf < 3600) && (vf >= 60)){
+      _vf = vf / 60;
+      alert("Minutes: " + _vf);
+    }else if ((vf < 86400) && (vf >= 3600)){
+      _vf = vf / 3600;
+      alert("Hours: " + _vf);
+    }else if ((vf < 604800) && (vf >= 86400)){
+      _vf = vf / 86400;
+      alert("Days: " + _vf);      
+    }else if(vf >= 604800){
+      _vf = vf / 604800;
+      alert("Weeks: " + _vf);
+    }    
+  }else if (_l1 === 'ss' && _l2 === 'ws') {
+    vf = _v1 + (_v2 * 604800);                                    // converting all values to seconds
+    if(vf < 60){
+      _vf = vf;
+      alert("Seconds: " + _vf);
+    }else if((vf < 3600) && (vf >= 60)){
+      _vf = vf / 60;
+      alert("Minutes: " + _vf);
+    }else if ((vf < 86400) && (vf >= 3600)){
+      _vf = vf / 3600;
+      alert("Hours: " + _vf);
+    }else if ((vf < 604800) && (vf >= 86400)){
+      _vf = vf / 86400;
+      alert("Days: " + _vf);      
+    }else if(vf >= 604800){
+      _vf = vf / 604800;
+      alert("Weeks: " + _vf);
+    }    
+  }else if (_l1 === 'ss' && _l2 === 'ds') {
+    vf = _v1 + (_v2 * 86400);                                     // converting all values to seconds
+    if(vf < 60){
+      _vf = vf;
+      alert("Seconds: " + _vf);
+    }else if((vf < 3600) && (vf >= 60)){
+      _vf = vf / 60;
+      alert("Minutes: " + _vf);
+    }else if ((vf < 86400) && (vf >= 3600)){
+      _vf = vf / 3600;
+      alert("Hours: " + _vf);
+    }else if ((vf < 604800) && (vf >= 86400)){
+      _vf = vf / 86400;
+      alert("Days: " + _vf);      
+    }else if(vf >= 604800){
+      _vf = vf / 604800;
+      alert("Weeks: " + _vf);
+    }    
+  }else if (_l1 === 'ss' && _l2 === 'hs') {
+    vf = _v1 + (_v2 * 3600);                                       // converting all values to seconds
+    if(vf < 60){
+      _vf = vf;
+      alert("Seconds: " + _vf);
+    }else if((vf < 3600) && (vf >= 60)){
+      _vf = vf / 60;
+      alert("Minutes: " + _vf);
+    }else if ((vf < 86400) && (vf >= 3600)){
+      _vf = vf / 3600;
+      alert("Hours: " + _vf);
+    }else if ((vf < 604800) && (vf >= 86400)){
+      _vf = vf / 86400;
+      alert("Days: " + _vf);      
+    }else if(vf >= 604800){
+      _vf = vf / 604800;
+      alert("Weeks: " + _vf);
+    }    
+  }else if (_l1 === 'ss' && _l2 === 'ms') {
+    vf = _v1 + (_v2 * 60);                                          // converting all values to seconds
+    if(vf < 60){
+      _vf = vf;
+      alert("Seconds: " + _vf);
+    }else if((vf < 3600) && (vf >= 60)){
+      _vf = vf / 60;
+      alert("Minutes: " + _vf);
+    }else if ((vf < 86400) && (vf >= 3600)){
+      _vf = vf / 3600;
+      alert("Hours: " + _vf);
+    }else if ((vf < 604800) && (vf >= 86400)){
+      _vf = vf / 86400;
+      alert("Days: " + _vf);      
+    }else if(vf >= 604800){
+      _vf = vf / 604800;
+      alert("Weeks: " + _vf);
+    }    
+  }else if (_l1 === 'ss' && _l2 === 'ss') {
+    vf = _v1 + _v2;                                                 // all values in seconds
+    if(vf < 60){
+      _vf = vf;
+      alert("Seconds: " + _vf);
+    }else if((vf < 3600) && (vf >= 60)){
+      _vf = vf / 60;
+      alert("Minutes: " + _vf);
+    }else if ((vf < 86400) && (vf >= 3600)){
+      _vf = vf / 3600;
+      alert("Hours: " + _vf);
+    }else if ((vf < 604800) && (vf >= 86400)){
+      _vf = vf / 86400;
+      alert("Days: " + _vf);      
+    }else if(vf >= 604800){
+      _vf = vf / 604800;
+      alert("Weeks: " + _vf);
+    }    
+  }
+  
+}
+
+timeAdder();
