@@ -1,10 +1,10 @@
 // HomeWork 5: Switch Statements
 
 var constants = {
-  week: [7, 168, 10080, 604800],  //days, hours, minutes, seconds
-  day: [24, 1440, 86400],        //hours, minutes, seconds
-  hour: [60, 3600],             //minutes, seconds
-  min: [60]                    //seconds
+  week: [7, 168, 10080, 604800],   //days, hours, minutes, seconds
+  day: [24, 1440, 86400],         //hours, minutes, seconds
+  hour: [60, 3600],              //minutes, seconds
+  min: [60]                     //seconds
 };
 
 function timeAdder() {
