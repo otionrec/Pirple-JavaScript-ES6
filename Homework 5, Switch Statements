@@ -320,7 +320,7 @@ function finalTime(_l1, _v1, _l2, _v2) {
       alert("Weeks: " + _vf);
     }    
   }else if (_l1 === 'ds' && _l2 === 'ds') {
-    vf = _v1 + _v2;                                            // all values in days
+    vf = _v1 + _v2;                                              // all values in days
     if (vf < 7) {
       _vf = vf;
       alert("Days: " + _vf);
